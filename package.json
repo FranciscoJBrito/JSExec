@@ -1,0 +1,66 @@
+{
+  "name": "jsexec",
+  "productName": "JSExec",
+  "version": "1.0.0",
+  "description": "Open source JavaScript playground - Alternative to RunJs",
+  "main": ".vite/build/main.js",
+  "homepage": "https://github.com/franciscojavierbrito/jsexec",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/franciscojavierbrito/jsexec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/franciscojavierbrito/jsexec/issues"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "dev": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts,.tsx .",
+    "lint:fix": "eslint --ext .ts,.tsx . --fix",
+    "clean": "rm -rf out dist .vite"
+  },
+  "keywords": [
+    "javascript",
+    "playground",
+    "editor",
+    "electron",
+    "runjs",
+    "code-runner",
+    "development-tools",
+    "open-source"
+  ],
+  "author": {
+    "name": "Francisco Brito",
+    "email": "franciscojavierbrito16@gmail.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.3",
+    "@electron-forge/maker-deb": "^7.8.3",
+    "@electron-forge/maker-rpm": "^7.8.3",
+    "@electron-forge/maker-squirrel": "^7.8.3",
+    "@electron-forge/maker-zip": "^7.8.3",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.3",
+    "@electron-forge/plugin-fuses": "^7.8.3",
+    "@electron-forge/plugin-vite": "^7.8.3",
+    "@electron/fuses": "^1.8.0",
+    "@types/electron-squirrel-startup": "^1.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "electron": "38.0.0",
+    "electron-icon-maker": "^0.0.5",
+    "eslint": "^8.57.1",
+    "eslint-plugin-import": "^2.32.0",
+    "typescript": "~4.5.4",
+    "vite": "^5.4.19"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "electron-squirrel-startup": "^1.0.1",
+    "monaco-editor": "^0.52.2",
+    "vite-plugin-monaco-editor": "^1.1.0"
+  }
+}
