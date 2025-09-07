@@ -5,7 +5,7 @@
   
   **The Ultimate JavaScript & TypeScript Playground**
   
-  *Open source alternative to RunJS - Completely free and powerful*
+  *Open source alternative to RunJS*
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![Electron](https://img.shields.io/badge/Electron-Latest-blue.svg)](https://electronjs.org/)
@@ -101,76 +101,6 @@ npm run clean
 | **Clear** | `⌘K` / `Ctrl+K` | Clears the output |
 | **Settings** | `⌘,` / `Ctrl+,` | Opens the settings panel |
 
-## Code Examples
-
-### Modern JavaScript
-
-```javascript
-// Welcome to JSExec!
-console.log('Hello JSExec!');
-
-// ES2020+ Features
-const numbers = [1, 2, 3, 4, 5];
-const squares = numbers.map(n => n ** 2);
-console.log('Numbers:', numbers);
-console.log('Squares:', squares);
-
-// Async/Await
-async function fetchData() {
-  const data = await Promise.resolve('Data loaded!');
-  console.log(data);
-}
-
-fetchData();
-
-// Destructuring and Spread
-const person = { name: 'Ana', age: 25, city: 'Madrid' };
-const { name, ...rest } = person;
-console.log(`${name} lives in ${rest.city}`);
-```
-
-### Advanced TypeScript
-
-```typescript
-// TypeScript with types and interfaces
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  active: boolean;
-}
-
-class UserManager {
-  private users: User[] = [];
-
-  addUser(user: User): void {
-    this.users.push(user);
-    console.log(`User ${user.name} added`);
-  }
-
-  getActiveUsers(): User[] {
-    return this.users.filter(u => u.active);
-  }
-
-  findByEmail<T extends User>(email: string): T | undefined {
-    return this.users.find(u => u.email === email) as T;
-  }
-}
-
-// Using the manager
-const manager = new UserManager();
-
-manager.addUser({
-  id: 1,
-  name: 'Francisco',
-  email: 'francisco@jsexec.dev',
-  active: true
-});
-
-const activeUsers = manager.getActiveUsers();
-console.log('Active users:', activeUsers.length);
-```
-
 ## Technology Stack
 
 ### Frontend & UI
@@ -215,32 +145,6 @@ Contributions are welcome! If you want to contribute:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## Roadmap
-
-### v1.0 - Completed
-- [x] **TypeScript Support** - Official transpiler integrated
-- [x] **Multiple Themes** - GitHub Dark + Tomorrow Night Bright
-- [x] **Customizable Fonts** - 5 professional options
-- [x] **Multi-language** - English & Spanish
-- [x] **Complete IntelliSense** - Tooltips and autocompletion
-- [x] **Smart Auto-run** - Complete code detection
-- [x] **Security System** - Sandbox and timeouts
-- [x] **Persistent Configuration** - localStorage
-
-### v1.1 - Coming Soon
-- [ ] **Multiple Tabs** - Complete workspace
-- [ ] **Code Snippets** - Predefined templates
-- [ ] **Export Results** - PDF, HTML, Markdown
-- [ ] **Execution History** - Results cache
-
-### v2.0 - Future
-- [ ] **npm Integration** - Import external packages
-- [ ] **Integrated Debugger** - Breakpoints and step-by-step
-- [ ] **ES Modules Support** - Native import/export
-- [ ] **Real-time Collaboration** - Shared workspaces
-- [ ] **Plugin System** - Third-party extensions
-- [ ] **Cloud Sync** - Cloud synchronization
-
 ## License
 
 This project is under the MIT License. See the `LICENSE` file for more details.
@@ -259,8 +163,8 @@ This project is under the MIT License. See the `LICENSE` file for more details.
   
   ### Do you like JSExec?
   
-  [![GitHub stars](https://img.shields.io/github/stars/franciscojavierbrito/jsexec?style=social)](https://github.com/franciscojavierbrito/jsexec/stargazers)
-  [![GitHub forks](https://img.shields.io/github/forks/franciscojavierbrito/jsexec?style=social)](https://github.com/franciscojavierbrito/jsexec/network/members)
+  [![GitHub stars](https://img.shields.io/github/stars/FranciscoJBrito/JSExec?style=social)](https://github.com/FranciscoJBrito/JSExec/stargazers)
+  [![GitHub forks](https://img.shields.io/github/forks/FranciscoJBrito/JSExec?style=social)](https://github.com/FranciscoJBrito/JSExec/network/members)
   
   **Give the repository a star!**
   
@@ -268,23 +172,20 @@ This project is under the MIT License. See the `LICENSE` file for more details.
   
   ### Community
   
-  **Found a bug?** → [Report an issue](https://github.com/franciscojavierbrito/jsexec/issues)
+  **Found a bug?** → [Report an issue](https://github.com/FranciscoJBrito/JSExec/issues)
   
-  **Have an idea?** → [Start a discussion](https://github.com/franciscojavierbrito/jsexec/discussions)
+  **Have an idea?** → [Start a discussion](https://github.com/FranciscoJBrito/JSExec/discussions)
   
-  **Want to contribute?** → [Contribution guide](https://github.com/franciscojavierbrito/jsexec/blob/main/CONTRIBUTING.md)
-  
-  **Direct contact** → [francisco@jsexec.dev](mailto:francisco@jsexec.dev)
-  
+  **Want to contribute?** → [Contribution guide](https://github.com/FranciscoJBrito/JSExec/blob/main/CONTRIBUTING.md)
   ---
   
   ### Project Status
   
-  ![GitHub release](https://img.shields.io/github/v/release/franciscojavierbrito/jsexec)
-  ![GitHub last commit](https://img.shields.io/github/last-commit/franciscojavierbrito/jsexec)
-  ![GitHub issues](https://img.shields.io/github/issues/franciscojavierbrito/jsexec)
-  ![GitHub pull requests](https://img.shields.io/github/issues-pr/franciscojavierbrito/jsexec)
+  ![GitHub release](https://img.shields.io/github/v/release/FranciscoJBrito/JSExec)
+  ![GitHub last commit](https://img.shields.io/github/last-commit/FranciscoJBrito/JSExec)
+  ![GitHub issues](https://img.shields.io/github/issues/FranciscoJBrito/JSExec)
+  ![GitHub pull requests](https://img.shields.io/github/issues-pr/FranciscoJBrito/JSExec)
   
-  **Made with love by [Francisco Brito](https://github.com/franciscojavierbrito)**
+  **Made with love by [Francisco Brito](https://github.com/FranciscoJBrito)**
   
 </div>
