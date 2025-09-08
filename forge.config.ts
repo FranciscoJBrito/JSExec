@@ -53,7 +53,7 @@ const config: ForgeConfig = {
         priority: 'optional',
         maintainer: 'Francisco Brito <francisco.brito.developer@gmail.com>',
         homepage: 'https://github.com/FranciscoJBrito/JSExec',
-        bin: 'jsexec'
+        bin: 'JSExec'
       }
     }),
     
@@ -67,7 +67,7 @@ const config: ForgeConfig = {
         icon: './build/icon.png',
         license: 'MIT',
         homepage: 'https://github.com/FranciscoJBrito/JSExec',
-        bin: 'jsexec'
+        bin: 'JSExec'
       }
     })
   ],
