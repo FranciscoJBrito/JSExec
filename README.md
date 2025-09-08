@@ -60,8 +60,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/franciscojavierbrito/jsexec.git
-cd jsexec
+git clone [https://github.com/franciscojavierbrito/jsexec.git](https://github.com/FranciscoJBrito/JSExec.git)
+cd JSExec
 
 # Install dependencies
 npm install
