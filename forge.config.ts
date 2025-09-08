@@ -13,7 +13,7 @@ const config: ForgeConfig = {
     asar: true,
     icon: './build/icon',
     name: 'JSExec',
-    executableName: 'JSExec',
+    executableName: process.platform === 'linux' ? 'jsexec' : 'JSExec',
     appBundleId: 'dev.jsexec.app',
     appCategoryType: 'public.app-category.developer-tools',
     protocols: [{
