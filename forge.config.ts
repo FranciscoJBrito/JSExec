@@ -13,8 +13,8 @@ const config: ForgeConfig = {
     asar: true,
     icon: './build/icon',
     name: 'JSExec',
-    executableName: process.platform === 'linux' ? 'jsexec' : 'JSExec',
-    appBundleId: 'dev.jsexec.app',
+    executableName: 'JSExec',
+    appBundleId: 'com.franciscobrito.jsexec',
     appCategoryType: 'public.app-category.developer-tools',
     protocols: [{
       name: 'JSExec',
@@ -51,8 +51,9 @@ const config: ForgeConfig = {
         icon: './build/icon.png',
         section: 'devel',
         priority: 'optional',
-        maintainer: 'Francisco Brito <francisco@jsexec.dev>',
-        homepage: 'https://github.com/franciscojavierbrito/jsexec'
+        maintainer: 'Francisco Brito <francisco.brito.developer@gmail.com>',
+        homepage: 'https://github.com/FranciscoJBrito/JSExec',
+        bin: 'jsexec'
       }
     }),
     
@@ -65,7 +66,8 @@ const config: ForgeConfig = {
         categories: ['Development'],
         icon: './build/icon.png',
         license: 'MIT',
-        homepage: 'https://github.com/franciscojavierbrito/jsexec'
+        homepage: 'https://github.com/FranciscoJBrito/JSExec',
+        bin: 'jsexec'
       }
     })
   ],

@@ -150,7 +150,7 @@ jobs:
             
             ---
             
-            **Full changelog:** https://github.com/franciscojavierbrito/jsexec/compare/v0.0.0...${{ steps.version.outputs.version }}
+            **Full changelog:** https://github.com/FranciscoJBrito/JSExec/compare/v0.0.0...${{ steps.version.outputs.version }}
           files: |
             ./release-files/*
         env:
