@@ -25,7 +25,7 @@ const config: ForgeConfig = {
   makers: [
     // macOS DMG Installer
     new MakerDMG({
-      name: 'WizardJS-${version}',
+      name: 'WizardJS',
       icon: './build/icon.icns',
       format: 'ULFO'
     }),
