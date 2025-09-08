@@ -12,20 +12,20 @@ const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
     icon: './build/icon',
-    name: 'JSExec',
-    executableName: 'JSExec',
-    appBundleId: 'com.franciscobrito.jsexec',
+    name: 'WizardJS',
+    executableName: 'WizardJS',
+    appBundleId: 'com.franciscobrito.wizardjs',
     appCategoryType: 'public.app-category.developer-tools',
     protocols: [{
-      name: 'JSExec',
-      schemes: ['jsexec']
+      name: 'WizardJS',
+      schemes: ['wizardjs']
     }]
   },
   rebuildConfig: {},
   makers: [
     // macOS DMG Installer
     new MakerDMG({
-      name: 'JSExec-${version}',
+      name: 'WizardJS-${version}',
       icon: './build/icon.icns',
       format: 'ULFO'
     }),
@@ -34,39 +34,39 @@ const config: ForgeConfig = {
     
     // Windows Installer
     new MakerSquirrel({
-      name: 'JSExec',
+      name: 'WizardJS',
       setupIcon: './build/icon.ico',
-      setupExe: 'JSExec-Setup-${version}.exe'
+      setupExe: 'WizardJS-Setup-${version}.exe'
     }),
     
     // Linux DEB (Debian/Ubuntu)
     new MakerDeb({
       options: {
-        name: 'jsexec',
-        productName: 'JSExec',
+        name: 'wizardjs',
+        productName: 'WizardJS',
         genericName: 'JavaScript Playground',
-        description: 'The Ultimate JavaScript & TypeScript Playground - Open source alternative to RunJS',
+        description: 'WizardJS - The Ultimate JavaScript & TypeScript Playground',
         categories: ['Development'],
         icon: './build/icon.png',
         section: 'devel',
         priority: 'optional',
         maintainer: 'Francisco Brito <francisco.brito.developer@gmail.com>',
-        homepage: 'https://github.com/FranciscoJBrito/JSExec',
-        bin: 'JSExec'
+        homepage: 'https://github.com/FranciscoJBrito/WizardJS',
+        bin: 'WizardJS'
       }
     }),
     
     // Linux RPM (RedHat/Fedora/SUSE)
     new MakerRpm({
       options: {
-        name: 'jsexec',
-        productName: 'JSExec',
-        description: 'The Ultimate JavaScript & TypeScript Playground - Open source alternative to RunJS',
+        name: 'wizardjs',
+        productName: 'WizardJS',
+        description: 'WizardJS - The Ultimate JavaScript & TypeScript Playground',
         categories: ['Development'],
         icon: './build/icon.png',
         license: 'MIT',
-        homepage: 'https://github.com/FranciscoJBrito/JSExec',
-        bin: 'JSExec'
+        homepage: 'https://github.com/FranciscoJBrito/WizardJS',
+        bin: 'WizardJS'
       }
     })
   ],

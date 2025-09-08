@@ -174,7 +174,7 @@ const createMenu = () => {
       role: 'help',
       submenu: [
         {
-          label: 'About JSExec',
+          label: 'About WizardJS',
           click: () => {
             BrowserWindow.getFocusedWindow()?.webContents.send('menu-about');
           }
@@ -182,7 +182,7 @@ const createMenu = () => {
         {
           label: 'Learn More',
           click: async () => {
-            await shell.openExternal('https://github.com/your-username/jsexec');
+            await shell.openExternal('https://github.com/FranciscoJBrito/WizardJS');
           }
         }
       ]

@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="build-asset/icon.png" alt="JSExec Logo" width="128" height="128">
+  <img src="build-asset/icon.png" alt="WizardJS Logo" width="128" height="128">
   
-  # JSExec
+  # WizardJS
   
   **The Ultimate JavaScript & TypeScript Playground**
   
@@ -60,8 +60,8 @@
 
 ```bash
 # Clone the repository
-git clone [https://github.com/franciscojavierbrito/jsexec.git](https://github.com/FranciscoJBrito/JSExec.git)
-cd JSExec
+git clone https://github.com/FranciscoJBrito/WizardJS.git
+cd WizardJS
 
 # Install dependencies
 npm install
@@ -85,7 +85,7 @@ npm run clean
 
 ### Immediate Usage
 
-1. **Open JSExec** and you'll see the editor ready
+1. **Open WizardJS** and you'll see the editor ready
 2. **Write code** in JavaScript or TypeScript
 3. **Automatic execution** when code is complete
 4. **Customize** themes, fonts and language in Settings
@@ -124,7 +124,7 @@ npm run clean
 ## Project Structure
 
 ```
-jsexec/
+wizardjs/
 ├── src/
 │   ├── main.ts          # Electron main process
 │   ├── renderer.ts      # Interface logic
@@ -161,10 +161,10 @@ This project is under the MIT License. See the `LICENSE` file for more details.
 
 <div align="center">
   
-  ### Do you like JSExec?
+  ### Do you like WizardJS?
   
-  [![GitHub stars](https://img.shields.io/github/stars/FranciscoJBrito/JSExec?style=social)](https://github.com/FranciscoJBrito/JSExec/stargazers)
-  [![GitHub forks](https://img.shields.io/github/forks/FranciscoJBrito/JSExec?style=social)](https://github.com/FranciscoJBrito/JSExec/network/members)
+  [![GitHub stars](https://img.shields.io/github/stars/FranciscoJBrito/WizardJS?style=social)](https://github.com/FranciscoJBrito/WizardJS/stargazers)
+  [![GitHub forks](https://img.shields.io/github/forks/FranciscoJBrito/WizardJS?style=social)](https://github.com/FranciscoJBrito/WizardJS/network/members)
   
   **Give the repository a star!**
   
@@ -172,19 +172,19 @@ This project is under the MIT License. See the `LICENSE` file for more details.
   
   ### Community
   
-  **Found a bug?** → [Report an issue](https://github.com/FranciscoJBrito/JSExec/issues)
+  **Found a bug?** → [Report an issue](https://github.com/FranciscoJBrito/WizardJS/issues)
   
-  **Have an idea?** → [Start a discussion](https://github.com/FranciscoJBrito/JSExec/discussions)
+  **Have an idea?** → [Start a discussion](https://github.com/FranciscoJBrito/WizardJS/discussions)
   
-  **Want to contribute?** → [Contribution guide](https://github.com/FranciscoJBrito/JSExec/blob/main/CONTRIBUTING.md)
+  **Want to contribute?** → [Contribution guide](https://github.com/FranciscoJBrito/WizardJS/blob/main/CONTRIBUTING.md)
   ---
   
   ### Project Status
   
-  ![GitHub release](https://img.shields.io/github/v/release/FranciscoJBrito/JSExec)
-  ![GitHub last commit](https://img.shields.io/github/last-commit/FranciscoJBrito/JSExec)
-  ![GitHub issues](https://img.shields.io/github/issues/FranciscoJBrito/JSExec)
-  ![GitHub pull requests](https://img.shields.io/github/issues-pr/FranciscoJBrito/JSExec)
+  ![GitHub release](https://img.shields.io/github/v/release/FranciscoJBrito/WizardJS)
+  ![GitHub last commit](https://img.shields.io/github/last-commit/FranciscoJBrito/WizardJS)
+  ![GitHub issues](https://img.shields.io/github/issues/FranciscoJBrito/WizardJS)
+  ![GitHub pull requests](https://img.shields.io/github/issues-pr/FranciscoJBrito/WizardJS)
   
   **Made with love by [Francisco Brito](https://github.com/FranciscoJBrito)**
   

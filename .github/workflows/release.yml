@@ -1,4 +1,4 @@
-name: Build and Release JSExec
+name: Build and Release WizardJS
 
 on:
   push:
@@ -64,7 +64,7 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: jsexec-${{ matrix.name }}
+          name: wizardjs-${{ matrix.name }}
           path: out/make/**/*
           retention-days: 7
 
@@ -112,12 +112,12 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.version.outputs.version }}
-          name: JSExec ${{ steps.version.outputs.version }}
+          name: WizardJS ${{ steps.version.outputs.version }}
           draft: false
           prerelease: false
           generate_release_notes: true
           body: |
-            ## 🚀 JSExec ${{ steps.version.outputs.version }}
+            ## 🚀 WizardJS ${{ steps.version.outputs.version }}
             
             **The Ultimate JavaScript & TypeScript Playground**
             
@@ -144,13 +144,13 @@ jobs:
             - Persistent configuration
             
             ### 🔧 Installation
-            - **macOS**: Open the `.dmg` file and drag JSExec to Applications
+            - **macOS**: Open the `.dmg` file and drag WizardJS to Applications
             - **Windows**: Run the `.exe` installer
             - **Linux**: Install the `.deb` or `.rpm` package using your package manager
             
             ---
             
-            **Full changelog:** https://github.com/FranciscoJBrito/JSExec/compare/v0.0.0...${{ steps.version.outputs.version }}
+            **Full changelog:** https://github.com/FranciscoJBrito/WizardJS/compare/v0.0.0...${{ steps.version.outputs.version }}
           files: |
             ./release-files/*
         env:

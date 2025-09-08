@@ -1,5 +1,5 @@
 /**
- * JSExec - JavaScript Playground
+ * WizardJS - JavaScript Playground
  * Open Source alternative to RunJs
  */
 
@@ -11,7 +11,7 @@ import * as ts from 'typescript';
 
 // The vite-plugin-monaco-editor will handle worker configuration automatically
 
-// JSExec Application Class
+// WizardJS Application Class
 interface AppSettings {
   autoRunEnabled: boolean;
   theme: string;
@@ -44,7 +44,7 @@ interface ThemeDefinition {
   };
 }
 
-class JSExecApp {
+class WizardJSApp {
   private editors: Map<string, monaco.editor.IStandaloneCodeEditor> = new Map();
   private tabCounter = 1;
   private activeTabId = 'tab-1';
@@ -66,7 +66,7 @@ class JSExecApp {
     fontFamily: 'JetBrains Mono',
     language: 'en'
   };
-  private readonly SETTINGS_KEY = 'jsexec-settings';
+  private readonly SETTINGS_KEY = 'wizardjs-settings';
 
   private themes: ThemeDefinition[] = [
     {
@@ -727,7 +727,7 @@ class JSExecApp {
   private updateTitle(): void {
     const tabData = this.tabData.get(this.activeTabId);
     if (tabData) {
-      const title = `${tabData.title}${tabData.isDirty ? ' •' : ''} - JSExec`;
+      const title = `${tabData.title}${tabData.isDirty ? ' •' : ''} - WizardJS`;
       document.title = title;
     }
   }
@@ -1390,13 +1390,13 @@ class JSExecApp {
   }
 
   private getWelcomeCode(): string {
-    return `// ¡Bienvenido a JSExec! 🚀
+    return `// ¡Bienvenido a WizardJS! 🚀
 // Tu playground de JavaScript y TypeScript open source
 // ✨ Auto-ejecución activada: el código se ejecuta automáticamente
 // 🔷 Soporte nativo para TypeScript - detección automática
 
 // Ejemplo básico JavaScript
-console.log('¡Hola JSExec!');
+console.log('¡Hola WizardJS!');
 
 // Ejemplo TypeScript con tipos
 interface Persona {
@@ -1413,7 +1413,7 @@ const persona: Persona = {
 
 // Función con tipos TypeScript
 function saludar(nombre: string): string {
-  return \`¡Hola, \${nombre}! Bienvenido a JSExec\`;
+  return \`¡Hola, \${nombre}! Bienvenido a WizardJS\`;
 }
 
 console.log(saludar('Desarrollador'));
@@ -1432,13 +1432,13 @@ console.log('Cuadrados:', cuadrados);
 // ¡Presiona Ctrl/Cmd + , para configuraciones!
 
 // Resultado final
-'¡JSExec con TypeScript está funcionando perfectamente!'`;
+'¡WizardJS con TypeScript está funcionando perfectamente!'`;
   }
 }
 
 // Initialize the application when DOM is loaded
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => new JSExecApp());
+  document.addEventListener('DOMContentLoaded', () => new WizardJSApp());
 } else {
-  new JSExecApp();
+  new WizardJSApp();
 }

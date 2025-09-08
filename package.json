@@ -1,16 +1,16 @@
 {
-  "name": "jsexec",
-  "productName": "JSExec",
+  "name": "wizardjs",
+  "productName": "WizardJS",
   "version": "1.0.0",
-  "description": "Open source JavaScript playground - Alternative to RunJs",
+  "description": "WizardJS - The Ultimate JavaScript & TypeScript Playground",
   "main": ".vite/build/main.js",
-  "homepage": "https://github.com/franciscojavierbrito/jsexec",
+  "homepage": "https://github.com/FranciscoJBrito/WizardJS",
   "repository": {
     "type": "git",
-    "url": "https://github.com/franciscojavierbrito/jsexec.git"
+    "url": "https://github.com/FranciscoJBrito/WizardJS.git"
   },
   "bugs": {
-    "url": "https://github.com/franciscojavierbrito/jsexec/issues"
+    "url": "https://github.com/FranciscoJBrito/WizardJS/issues"
   },
   "scripts": {
     "start": "electron-forge start",
