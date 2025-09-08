@@ -1,0 +1,157 @@
+name: Build and Release JSExec
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          # macOS builds
+          - os: macos-latest
+            platform: darwin
+            arch: x64
+            name: macOS-Intel
+          - os: macos-latest
+            platform: darwin
+            arch: arm64
+            name: macOS-AppleSilicon
+          # Windows build
+          - os: windows-latest
+            platform: win32
+            arch: x64
+            name: Windows
+          # Linux build
+          - os: ubuntu-latest
+            platform: linux
+            arch: x64
+            name: Linux
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build application
+        run: npm run make
+        env:
+          NODE_ENV: production
+        
+      - name: List generated files (debug)
+        run: |
+          echo "Contents of out/make:"
+          find out/make -type f -name "*" || echo "No files found"
+        shell: bash
+        
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: jsexec-${{ matrix.name }}
+          path: out/make/**/*
+          retention-days: 7
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts
+          
+      - name: Display structure of downloaded files
+        run: |
+          echo "Downloaded artifacts structure:"
+          find ./artifacts -type f -name "*" || echo "No artifacts found"
+        
+      - name: Prepare release files
+        run: |
+          mkdir -p ./release-files
+          
+          # Copy and rename files for release
+          find ./artifacts -name "*.dmg" -exec cp {} ./release-files/ \;
+          find ./artifacts -name "*.zip" -exec cp {} ./release-files/ \;
+          find ./artifacts -name "*.exe" -exec cp {} ./release-files/ \;
+          find ./artifacts -name "*.deb" -exec cp {} ./release-files/ \;
+          find ./artifacts -name "*.rpm" -exec cp {} ./release-files/ \;
+          find ./artifacts -name "*.AppImage" -exec cp {} ./release-files/ \;
+          
+          echo "Files prepared for release:"
+          ls -la ./release-files/
+        
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+        
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          name: JSExec ${{ steps.version.outputs.version }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          body: |
+            ## 🚀 JSExec ${{ steps.version.outputs.version }}
+            
+            **The Ultimate JavaScript & TypeScript Playground**
+            
+            ### 📦 Downloads
+            
+            **macOS:**
+            - Intel Macs: Download the `.dmg` file for x64
+            - Apple Silicon (M1/M2): Download the `.dmg` file for arm64
+            - Portable: Download the `.zip` file
+            
+            **Windows:**
+            - Download the `.exe` installer
+            
+            **Linux:**
+            - Debian/Ubuntu: Download the `.deb` package
+            - RedHat/Fedora: Download the `.rpm` package
+            
+            ### ✨ Features
+            - Complete JavaScript & TypeScript support
+            - Monaco Editor with full IntelliSense
+            - Multiple themes and professional fonts
+            - Multi-language interface (English & Spanish)
+            - Smart auto-run with security sandbox
+            - Persistent configuration
+            
+            ### 🔧 Installation
+            - **macOS**: Open the `.dmg` file and drag JSExec to Applications
+            - **Windows**: Run the `.exe` installer
+            - **Linux**: Install the `.deb` or `.rpm` package using your package manager
+            
+            ---
+            
+            **Full changelog:** https://github.com/franciscojavierbrito/jsexec/compare/v0.0.0...${{ steps.version.outputs.version }}
+          files: |
+            ./release-files/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

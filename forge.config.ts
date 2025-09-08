@@ -3,6 +3,7 @@ import { MakerSquirrel } from '@electron-forge/maker-squirrel';
 import { MakerZIP } from '@electron-forge/maker-zip';
 import { MakerDeb } from '@electron-forge/maker-deb';
 import { MakerRpm } from '@electron-forge/maker-rpm';
+import { MakerDMG } from '@electron-forge/maker-dmg';
 import { VitePlugin } from '@electron-forge/plugin-vite';
 import { FusesPlugin } from '@electron-forge/plugin-fuses';
 import { FuseV1Options, FuseVersion } from '@electron/fuses';
@@ -10,36 +11,64 @@ import { FuseV1Options, FuseVersion } from '@electron/fuses';
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
-    icon: 'build/icon',
+    icon: './build/icon',
+    name: 'JSExec',
+    executableName: 'JSExec',
+    appBundleId: 'dev.jsexec.app',
+    appCategoryType: 'public.app-category.developer-tools',
+    protocols: [{
+      name: 'JSExec',
+      schemes: ['jsexec']
+    }]
   },
   rebuildConfig: {},
-  makers: [new MakerSquirrel({}), new MakerZIP({}, ['darwin']), new MakerRpm({}), new MakerDeb({}), {
-    name: '@electron-forge/maker-squirrel',
-    config: {
-      setupIcon: 'build/icon.ico',
-    },
-  },
-  {
-    name: '@electron-forge/maker-dmg',
-    config: {
-      icon: 'build/icon.icns',
-    },
-  },
-  {
-    name: '@electron-forge/maker-deb',
-    config: {
-      icon: 'build/icon.png',
-    },
-  },
-  {
-    name: '@electron-forge/maker-wix',
-    config: {
-      setupIcon: 'build/icon.ico',
-    },
-  },
-
-
-],
+  makers: [
+    // macOS DMG Installer
+    new MakerDMG({
+      name: 'JSExec-${version}',
+      icon: './build/icon.icns',
+      format: 'ULFO'
+    }),
+    // macOS ZIP (for direct download)
+    new MakerZIP({}, ['darwin']),
+    
+    // Windows Installer
+    new MakerSquirrel({
+      name: 'JSExec',
+      setupIcon: './build/icon.ico',
+      loadingGif: './build-asset/loading.gif',
+      setupExe: 'JSExec-Setup-${version}.exe'
+    }),
+    
+    // Linux DEB (Debian/Ubuntu)
+    new MakerDeb({
+      options: {
+        name: 'jsexec',
+        productName: 'JSExec',
+        genericName: 'JavaScript Playground',
+        description: 'The Ultimate JavaScript & TypeScript Playground - Open source alternative to RunJS',
+        categories: ['Development'],
+        icon: './build/icon.png',
+        section: 'devel',
+        priority: 'optional',
+        maintainer: 'Francisco Brito <francisco@jsexec.dev>',
+        homepage: 'https://github.com/franciscojavierbrito/jsexec'
+      }
+    }),
+    
+    // Linux RPM (RedHat/Fedora/SUSE)
+    new MakerRpm({
+      options: {
+        name: 'jsexec',
+        productName: 'JSExec',
+        description: 'The Ultimate JavaScript & TypeScript Playground - Open source alternative to RunJS',
+        categories: ['Development'],
+        icon: './build/icon.png',
+        license: 'MIT',
+        homepage: 'https://github.com/franciscojavierbrito/jsexec'
+      }
+    })
+  ],
   plugins: [
     new VitePlugin({
       // `build` can specify multiple entry builds, which can be Main process, Preload scripts, Worker process, etc.
