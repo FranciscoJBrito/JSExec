@@ -36,7 +36,6 @@ const config: ForgeConfig = {
     new MakerSquirrel({
       name: 'JSExec',
       setupIcon: './build/icon.ico',
-      loadingGif: './build-asset/loading.gif',
       setupExe: 'JSExec-Setup-${version}.exe'
     }),
     
