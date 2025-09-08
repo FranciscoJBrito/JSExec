@@ -47,8 +47,10 @@ jobs:
           node-version: '22'
           cache: 'npm'
           
-      - name: Install dependencies
-        run: npm ci
+      - name: Clean npm cache and install dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
         
       - name: Build application
         run: npm run make
